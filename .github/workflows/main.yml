@@ -36,6 +36,9 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
+      with: 
+        gradle-version: '8.5' 
+
     - name: Build with Gradle
       run: gradle build -Pversion=${{ env.TAG_NAME }}
     - name: Upload Artifacts
@@ -59,5 +62,6 @@ jobs:
           - 构建时间（UTC）：${{ env.BUILD_DATE_UTC }}
           - 构建时间（北京时间）：${{ env.BUILD_DATE_BJ }}
           - 提交哈希：`${{ github.sha }}`
+          - 正常情况下，你只需要使用后缀带all的版本，他们集成了需要的所有依赖
         draft: false
         files: build/libs/*
