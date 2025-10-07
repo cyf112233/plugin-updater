@@ -4,8 +4,6 @@ main: byd.cxkcxkckx.pluginupdate.pluginupdate
 api-version: 1.13
 load: STARTUP
 depend: []
-softdepend: 
-  - PlaceholderAPI
 authors: [ cxkcxkckx,tms ]
 commands:
   update:
