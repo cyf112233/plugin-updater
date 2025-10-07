@@ -4,8 +4,14 @@ plugins {
     id ("com.gradleup.shadow") version "8.3.0"
 }
 
+val buildversion: String = if (project.hasProperty("version")) {
+    project.property("version") as String
+} else {
+    "unspecified"
+}
+
 group = "byd.cxkcxkckx.pluginupdate"
-version = "1.0.0"
+version = buildversion
 val targetJavaVersion = 8
 val shadowGroup = "top.m.libs"
 
