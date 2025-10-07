@@ -27,8 +27,6 @@ jobs:
         echo "BUILD_DATE_UTC=${BUILD_DATE_UTC}" >> $GITHUB_ENV
         echo "BUILD_DATE_BJ=${BUILD_DATE_BJ}" >> $GITHUB_ENV
         echo "RELEASE_TITLE=${RELEASE_TITLE}" >> $GITHUB_ENV
-    - name: Change gradlew permissions
-      run: chmod +x ./gradlew
     - name: Cache Gradle dependencies
       uses: actions/cache@v4
       with:
@@ -39,7 +37,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
     - name: Build with Gradle
-      run: ./gradlew build -Pversion=${{ env.TAG_NAME }}
+      run: gradle build -Pversion=${{ env.TAG_NAME }}
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
