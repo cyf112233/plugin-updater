@@ -1,0 +1,19 @@
+name: plugin-updater
+version: '${version}'
+main: byd.cxkcxkckx.pluginupdate.pluginupdate
+api-version: 1.13
+load: STARTUP
+depend: []
+softdepend: 
+  - PlaceholderAPI
+authors: [ cxkcxkckx,tms ]
+commands:
+  update:
+    description: "执行插件更新检查"
+    usage: "/update"
+    permission: "pluginupdate.use"
+
+permissions:
+  pluginupdate.use:
+    description: "允许使用 /update 命令与更新GUI"
+    default: op

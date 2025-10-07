@@ -1,0 +1,29 @@
+# 插件自动更新配置（默认模板，首次运行自动补全）
+# 路径：此文件打包进 JAR，首次运行时会复制到插件数据目录
+# 目标位置：plugins/<本插件目录>/plugin_updater_config.yaml
+#
+# 设计：
+# - 初始仅提供空的 plugins 映射
+# - 插件启动时会扫描服务器 plugins 目录中所有已安装插件的 .jar
+#   并自动在本文件中为每个插件生成占位条目：
+#     name:
+#       enabled: true
+#       jar_filename: <实际JAR文件名>
+#       update_source: ""        # 需手动填入 GitHub 仓库或 Spigot 资源页
+#       github_allow_pre_release: false
+# - 这样无需事先写死几个示例插件，真正做到“为所有插件做检测与配置补全”。
+#
+# 使用：
+# 1) 首次启动后，打开 plugins/<本插件目录>/plugin_updater_config.yaml
+# 2) 为需要更新的插件填写 update_source：
+#    - GitHub: https://github.com/<owner>/<repo>
+#    - Spigot: https://www.spigotmc.org/resources/<resource-id>/ 或资源页链接
+#    可选 github_allow_pre_release: true 以允许预发布版本
+# 3) 保存文件，执行更新检查或更新命令/GUI，即可生效。
+#
+# 注意：
+# - 未填写 update_source 的插件无法进行远程版本比对与下载，但会被自动列出以便后续填写。
+# - jar_filename 必须与 plugins 目录中的真实文件名一致（已自动填充）。
+# - 若不想更新某个插件，将 enabled 设置为 false。
+
+plugins: {}
